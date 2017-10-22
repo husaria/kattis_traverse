@@ -32,11 +32,11 @@ public class Main {
 
         String result = "CORRECT";
 
-        for (int x = 0; x < pairedCoord.length; x++) {
-            int x1 = pairedCoord[x][0];
-            int y1 = pairedCoord[x][1];
-            int x2 = pairedCoord[x + 1][0];
-            int y2 = pairedCoord[x + 1][1];
+        for (int x = pairedCoord.length; x >= 2; x--) {
+            int x1 = pairedCoord[x - 1][0];
+            int y1 = pairedCoord[x - 1][1];
+            int x2 = pairedCoord[x - 2][0];
+            int y2 = pairedCoord[x - 2][1];
             if (x1 == x2 || y1 == y2 || (Math.abs(x1 - y1) == Math.abs(x2 - y2))) {
                 result = "INCORRECT";
                 break;
