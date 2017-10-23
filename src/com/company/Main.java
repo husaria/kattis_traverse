@@ -6,11 +6,15 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-//        String input = "4\n" +
-//                "2 3\n" +
-//                "0 2\n" +
-//                "1 0\n" +
-//                "2 2";
+//        String input = "8\n" +
+//                "1 5\n" +
+//                "6 2\n" +
+//                "3 1\n" +
+//                "5 0\n" +
+//                "4 6\n" +
+//                "0 3\n" +
+//                "2 7\n" +
+//                "7 4";
 //        Scanner sc = new Scanner(input);
 
         int boardSize = sc.nextInt();
@@ -38,12 +42,23 @@ public class Main {
             for (int p = m - 2; p > 0; p--) {
                 int x2 = pairedCoord[p][0];
                 int y2 = pairedCoord[p][1];
-                if (x1 == x2 || y1 == y2 || (x1 + y1) == (x2 + y2)) {
+                if (x1 == x2 || y1 == y2) {
                     result = "INCORRECT";
                     break;
+                } else if ((x1 < x2 && y1 < y2) || (x1 > x2 && y1 > y2)) {
+                    if (x1-y1 == x2-y2){
+                        result = "INCORRECT";
+                        break;
+                    }
+                } else if ((x1 < x2 && y1 > y2) || (x1 > x2 && y1 < y2)) {
+                    if (x1+y1 == x2+y2) {
+                        result = "INCORRECT";
+                        break;
+                    }
+
                 }
             }
-            if (result == "INCORRECT") {
+            if (result.equals("INCORRECT")) {
                 break;
             }
         }
