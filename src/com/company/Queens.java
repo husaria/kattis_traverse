@@ -2,19 +2,12 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Main {
+public class Queens {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-//        String input = "8\n" +
-//                "1 5\n" +
-//                "6 2\n" +
-//                "3 1\n" +
-//                "5 0\n" +
-//                "4 6\n" +
-//                "0 3\n" +
-//                "2 7\n" +
-//                "7 4";
+//        String input = "1\n" +
+//                "0 0";
 //        Scanner sc = new Scanner(input);
 
         int boardSize = sc.nextInt();
@@ -35,6 +28,12 @@ public class Main {
         }
 
         String result = "CORRECT";
+
+        if (boardSize == 2) {
+            result = "INCORRECT";
+            System.out.println(result);
+            System.exit(0);
+        }
 
         for (int m = pairedCoord.length; m >= 2; m--) {
             int x1 = pairedCoord[m - 1][0];
